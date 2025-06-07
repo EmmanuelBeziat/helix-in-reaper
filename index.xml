@@ -3,7 +3,7 @@
   <category name="MIDI">
     <reapack name="Helix in Reaper" type="script" desc="MIDI control of Line6 Helix Presets and snapshots in Reaper">
       <version name="0.0.1" author="Emmanuel Béziat" time="2025-06-07T21:17:24Z">
-				<source file="helix-in-reaper.lua" platform="windows" type="effect">https://github.com/EmmanuelBeziat/helix-in-reaper/raw/refs/heads/main/helix-in-reaper.lua
+				<source file="helix-in-reaper.lua" platform="windows" type="effect">https://raw.githubusercontent.com/EmmanuelBeziat/helix-in-reaper/refs/heads/main/helix-in-reaper.lua
 				</source>
 				<changelog><![CDATA[Initial Release]]></changelog>
       </version>
