@@ -1,6 +1,19 @@
 -- helix-in-reaper.lua
 -- Basic GUI with a button to create a MIDI block at the cursor position
 
+-- Main script
+local script_path = reaper.GetResourcePath() .. "/Scripts/helix-in-reaper/"
+-- local script_path = "i:/helix-in-reaper/"
+package.path = script_path .. "?.lua;" .. package.path
+
+-- Import modules
+local Window = dofile(script_path .. "ui/window.lua")
+local Button = dofile(script_path .. "ui/button.lua")
+local MIDI = dofile(script_path .. "core/midi.lua")
+
+-- Initialize window
+Window.init()
+
 function create_midi_block()
   local track = reaper.GetSelectedTrack(0, 0)
   if not track then
@@ -21,44 +34,24 @@ function create_midi_block()
   end
 end
 
--- GUI parameters
-local window_title = "Helix in Reaper"
-local width, height = 300, 100
-
 function main()
-  gfx.init(window_title, width, height)
-  while true do
-    gfx.set(0.18, 0.18, 0.18, 1) -- background color
-    gfx.rect(0, 0, gfx.w, gfx.h, 1)
+  -- Draw background
+  Window.draw_background()
 
-    -- Draw button
-    local btn_x, btn_y, btn_w, btn_h = 50, 30, 200, 40
-    gfx.set(0.3, 0.5, 0.7, 1)
-    gfx.rect(btn_x, btn_y, btn_w, btn_h, 1)
-    gfx.set(1, 1, 1, 1)
-    gfx.x = btn_x + 40
-    gfx.y = btn_y + 12
-    gfx.drawstr("Create MIDI Block")
+  -- Draw and handle button
+  Button.draw()
+  Button.handle_click()
 
-    -- Button click detection
-    if gfx.mouse_cap & 1 == 1 then
-      local mx, my = gfx.mouse_x, gfx.mouse_y
-      if mx > btn_x and mx < btn_x + btn_w and my > btn_y and my < btn_y + btn_h then
-        if not button_down then
-          create_midi_block()
-          button_down = true
-        end
-      end
-    else
-      button_down = false
-    end
+  -- Update window
+  Window.update()
 
-    if gfx.getchar() < 0 then break end
-    gfx.update()
-    reaper.defer(main)
+  -- Check for window close
+  if Window.should_close() then
+    Window.close()
     return
   end
-  gfx.quit()
+
+  reaper.defer(main)
 end
 
 main()
