@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <index version="1" name="Helix in Reaper">
   <category name="MIDI">
-    <reapack name="Helix in Reaper" type="script" desc="MIDI control of Line6 Helix Presets and snapshots in Reaper">
-      <version name="0.0.1a" author="Emmanuel Béziat" time="2025-06-07T21:17:24Z">
-				<source file="helix-in-reaper.lua" platform="windows" type="effect">https://raw.githubusercontent.com/EmmanuelBeziat/helix-in-reaper/main/helix-in-reaper.lua
-				</source>
+    <reapack name="Helix in Reaper" type="script" desc="MIDI control of Line6 Helix Presets and snapshots in Reaper.">
+      <version name="0.0.2" author="Emmanuel Béziat" time="2025-06-07T21:17:24Z">
+				<source>https://raw.githubusercontent.com/EmmanuelBeziat/helix-in-reaper/main/helix-in-reaper.lua</source>
 				<changelog><![CDATA[Initial Release]]></changelog>
       </version>
     </reapack>
   </category>
   <metadata>
     <link rel="website">https://github.com/EmmanuelBeziat/helix-in-reaper</link>
-    <description><![CDATA[{\rtf1 {\fonttbl {\f0 Helvetica;}} \f0\fs60 MIDI control of Line6 Helix Presets and snapshots in Reaper}]]></description>
+    <description><![CDATA[{\rtf1 {\fonttbl {\f0 Helvetica;}} \f0\fs60 MIDI control of Line6 Helix Presets and snapshots in Reaper.}]]></description>
   </metadata>
 </index>
