@@ -2,17 +2,22 @@
 -- Basic GUI with a button to create a MIDI block at the cursor position
 
 -- Main script
-local script_path = reaper.GetResourcePath() .. "/Scripts/helix-in-reaper/"
+local script_path = reaper.GetResourcePath() .. "/Scripts/helix-in-reaper/",
 -- local script_path = "i:/helix-in-reaper/"
-package.path = script_path .. "?.lua;" .. package.path
+local Config = dofile(script_path .. "config.lua")
+package.path = Config.script_path .. "?.lua;" .. package.path
 
 -- Import modules
-local Window = dofile(script_path .. "ui/window.lua")
-local Button = dofile(script_path .. "ui/button.lua")
-local MIDI = dofile(script_path .. "core/midi.lua")
+local Window = dofile(Config.script_path .. "ui/window.lua")(Config)
+local Button = dofile(Config.script_path .. "ui/button.lua")(Config)
+local DeviceList = dofile(Config.script_path .. "ui/device_list.lua")(Config)
+local MIDI = dofile(Config.script_path .. "core/midi.lua")
 
 -- Initialize window
 Window.init()
+
+-- Initialize device list
+DeviceList.init()
 
 function create_midi_block()
   local track = reaper.GetSelectedTrack(0, 0)
@@ -37,6 +42,10 @@ end
 function main()
   -- Draw background
   Window.draw_background()
+
+  -- Draw and handle device list
+  DeviceList.draw()
+  DeviceList.handle_click()
 
   -- Draw and handle button
   Button.draw()
