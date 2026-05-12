@@ -2,8 +2,8 @@
 -- Basic GUI with a button to create a MIDI block at the cursor position
 
 -- Main script
-local script_path = reaper.GetResourcePath() .. "/Scripts/helix-in-reaper/",
--- local script_path = "i:/helix-in-reaper/"
+-- local script_path = reaper.GetResourcePath() .. "/Scripts/helix-in-reaper/",
+local script_path = "i:/helix-in-reaper/"
 local Config = dofile(script_path .. "config.lua")
 package.path = Config.script_path .. "?.lua;" .. package.path
 

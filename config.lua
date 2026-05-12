@@ -1,8 +1,8 @@
 -- Global configuration
 local Config = {
   -- Paths
-	script_path = reaper.GetResourcePath() .. "/Scripts/helix-in-reaper/",
-  -- script_path = "i:/helix-in-reaper/",
+	-- script_path = reaper.GetResourcePath() .. "/Scripts/helix-in-reaper/",
+  script_path = "i:/helix-in-reaper/",
 
   -- Window settings
   window = {

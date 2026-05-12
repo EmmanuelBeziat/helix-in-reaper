@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="Helix in Reaper">
+<index version="1" name="EmmanuelBeziat">
   <category name="MIDI">
     <reapack name="Helix in Reaper" type="script" desc="MIDI control of Line6 Helix Presets and snapshots in Reaper.">
-      <version name="0.0.4" author="Emmanuel Béziat" time="2025-06-07T21:17:24Z">
+      <version name="0.0.5" author="Emmanuel Béziat" time="2026-05-13T12:00:00Z">
 				<source>https://raw.githubusercontent.com/EmmanuelBeziat/helix-in-reaper/main/helix-in-reaper.lua</source>
 				<changelog><![CDATA[Initial Release]]></changelog>
       </version>
